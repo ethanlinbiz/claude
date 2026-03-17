@@ -7,6 +7,7 @@ import Sidebar from '@/components/Sidebar';
 import TopBar from '@/components/TopBar';
 import NewProjectModal from '@/components/NewProjectModal';
 import { getProjects } from '@/lib/projectStore';
+import { seedMockData } from '@/lib/mockData';
 import { Project } from '@/lib/types';
 import { AGENTS } from '@/lib/agents';
 import { Clock, ArrowRight } from 'lucide-react';
@@ -18,6 +19,7 @@ function HomeContent() {
   const [recentProjects, setRecentProjects] = useState<Project[]>([]);
 
   useEffect(() => {
+    seedMockData();
     if (searchParams.get('new') === '1') {
       setShowModal(true);
     }
